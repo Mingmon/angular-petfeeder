@@ -1,0 +1,26 @@
+<div class="mat-elevation-z8">
+  <mat-table #table [dataSource]="log" matSort aria-label="Elements">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="Round">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Round</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.value.switch}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Time" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.value.time}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+    [length]="log.length"
+    [pageIndex]="0"
+    [pageSize]="25"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

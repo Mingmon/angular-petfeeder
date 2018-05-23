@@ -1,27 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5">
-    <div class="jumbotron">
+<div class="container mt-3">
+    <div class="jumbotron mb-3">
         <h1 class="display-3 text-success" *ngIf="!isOpen">ON</h1>
         <h1 class="display-3 text-danger" *ngIf="isOpen">OFF</h1>
         <form class="example-form">
             <mat-form-field class="example-full-width w-100 mt-2">
-              <input matInput placeholder="round" type="number" [(ngModel)]="switchValue" name="switchvalue" (keydown)="checkEnter($event)">
+              <input matInput placeholder="round (less than 10)" type="number" [(ngModel)]="switchValue" name="switchvalue" (keydown)="checkEnter($event)">
             </mat-form-field>
+            <label class="text-danger" *ngIf="switchValue>=10">input must less than 10</label>
           </form>
           <button type="button" class="btn btn-success btn-lg"  role="button" (click)="submit()" >Submit</button>
       </div>
 
       <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 mb-3">
               <div class="card">
               <div class="row">
-                  <img class="col-5" style="height: 100%" src="../assets/270599.jpg" alt="Card image cap">
-                  <div class="col-7">
+                  <img class="col-12 col-lg-5" style="height: 100%" src="../assets/270599.jpg" alt="Card image cap">
+                  <div class="col-12 col-lg-7">
+                      <div class="pl-2">
                       <h5 class="card-title mt-2">Nattanan Semathong</h5>
                       <p class="card-text">Student's ID : 60010313</p>
                       <p class="card-text mb-1">1st year student <br/> in the Faculty of Engineering <br/> with a major in Information Engineering </p>
-                      <a href="https://www.facebook.com/mingmonmyu" target="_blank" class="btn btn-primary">Contact me!</a>
+                      <a href="https://www.facebook.com/mingmonmyu" target="_blank" class="btn btn-primary mb-2">Contact me!</a>
+                      </div>
                     </div>
                 </div>
            
@@ -30,18 +33,22 @@
           <div class="col-sm-6">
             <div class="card">
             <div class="row">
-                <img class="col-5" style="height: 100%" src="../assets/270596.jpg" alt="Card image cap">
-                <div class="col-7">
+                <img class="col-12 col-lg-5" style="height: 100%" src="../assets/270596.jpg" alt="Card image cap">
+                <div class="col-12 col-lg-7">
+                    <div class="pl-2">
                     <h5 class="card-title mt-2">Kathaleeya Anakjin</h5>
                     <p class="card-text">Student's ID : 60010123</p>
                     <p class="card-text mb-1">1st year student <br/> in the Faculty of Engineering <br/> with a major in Information Engineering </p>
-                    <a href="https://www.facebook.com/iceice.anakjin" target="_blank" class="btn btn-primary">Contact me!</a>
+                    <a href="https://www.facebook.com/iceice.anakjin" target="_blank" class="btn btn-primary mb-2">Contact me!</a>
+                  </div>
                   </div>
               </div>
          
             </div>
           </div>
         </div>
+
+<app-table></app-table>
 </div>
 
 

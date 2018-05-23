@@ -13,9 +13,11 @@ export class AppComponent implements OnInit {
     this.wikiList = db.list('/light');
   }
   wikis = [];
+  log = [];
   isOpen = true;
   switchValue: number;
   ngOnInit(): void {
+
     this.wikiList.snapshotChanges().subscribe(actions => {
       this.wikis = actions.map(action => ({ key: action.key, value: action.payload.val() }));
       console.log(this.wikis[0].value);
@@ -28,7 +30,12 @@ export class AppComponent implements OnInit {
   }
 
   submit() {
+    
+    if (this.switchValue <= 10) {
     this.wikiList.set('/switch', this.switchValue);
+    this.wikiList.set('/time',new Date().toDateString());
+    this.db.list('/log').push({'switch': this.switchValue, 'time': new Date().toDateString()});
+  }
   }
   checkEnter(event: any) {
     if (event.keyCode === 13) {
